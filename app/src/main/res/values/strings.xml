@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">keshe</string>
+    <string name="title_activity_manage">ManageActivity</string>
+    <string name="title_activity_common">CommonActivity</string>
+</resources>
