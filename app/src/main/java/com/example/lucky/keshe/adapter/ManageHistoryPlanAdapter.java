@@ -1,34 +1,30 @@
 package com.example.lucky.keshe.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.lucky.keshe.R;
 import com.example.lucky.keshe.data.bean.Plan;
-import com.example.lucky.keshe.data.bean.User;
 
 import java.util.List;
 
 /**
- * Created by lucky on 2018/9/10.
+ * Created by lucky on 2018/9/20.
  */
 
-public class HistoryPlanAdapter extends BaseAdapter{
+public class ManageHistoryPlanAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<Plan> mPlans;
     int data;
-    public HistoryPlanAdapter(Context context,List<Plan> planList,int m){
+
+    public ManageHistoryPlanAdapter(Context context, List<Plan> planList,int i){
         mInflater=LayoutInflater.from(context);
         mPlans=planList;
-        data=m;
+        data=i;
     }
 
     @Override
@@ -48,7 +44,7 @@ public class HistoryPlanAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView,ViewGroup parent) {
-       ViewHolder holder = null;
+        ViewHolder holder = null;
         if (convertView==null){
             convertView = mInflater.inflate(R.layout.history_plan_item, parent, false); //加载布局
             holder = new ViewHolder();

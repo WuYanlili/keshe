@@ -1,5 +1,6 @@
 package com.example.lucky.keshe.data.bean;
 
+
 import java.util.Date;
 
 /**
@@ -7,18 +8,27 @@ import java.util.Date;
  */
 
 public class Plan {
-    private int id;
+    private Integer id;
+    private Integer user_id;
     private String name;
     private String content;
-    private Date start_time;
-    private Date during_time;
+    private Date begin_time;
+    private Boolean finish;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public String getName() {
@@ -37,19 +47,19 @@ public class Plan {
         this.content = content;
     }
 
-    public Date getStart_time() {
-        return start_time;
+    public Date getBegin_time() {
+        return begin_time;
     }
 
-    public void setStart_time(Date start_time) {
-        this.start_time = start_time;
+    public void setBegin_time(Date begin_time) {
+        this.begin_time = begin_time;
     }
 
-    public Date getDuring_time() {
-        return during_time;
+    public Boolean getFinish() {
+        return finish;
     }
 
-    public void setDuring_time(Date during_time) {
-        this.during_time = during_time;
+    public void setFinish(Boolean finish) {
+        this.finish = finish;
     }
 }

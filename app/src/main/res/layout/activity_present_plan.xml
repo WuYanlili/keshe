@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#ffffff"
     tools:context="com.example.lucky.keshe.activity.PresentPlanActivity">
     <ImageView
@@ -14,4 +15,55 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="5dp"
         app:srcCompat="@drawable/back_black"/>
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="00:00:00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="当前计划"
+        android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/present_plan_tv"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="截止时间"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="35dp"/>
+
+    <TextView
+        android:id="@+id/deadline_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:text="00:00:00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"/>
+    <Button
+        android:layout_width="200dp"
+        android:id="@+id/complete_plan"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="完成打卡"/>
+</LinearLayout>

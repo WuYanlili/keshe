@@ -14,6 +14,15 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:id="@+id/sign_in"
+        android:layout_weight="1"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="已    离    开"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:id="@+id/bt_make_plan"
         android:layout_weight="1"
         android:textSize="20dp"
@@ -56,23 +65,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_gravity="left"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="用户名"
-            android:id="@+id/username"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="工号"
-                android:gravity="center_vertical|center_horizontal"
-                android:textColor="@color/cardview_dark_background"
-                android:id="@+id/work_id"/>
+
         </LinearLayout>
     <pl.droidsonroids.gif.GifImageView
         android:layout_marginTop="10dp"

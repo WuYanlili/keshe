@@ -2,8 +2,6 @@ package com.example.lucky.keshe.activity;
 
 import android.content.Intent;
 import android.os.Looper;
-import android.os.StrictMode;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,64 +23,55 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
-    private Button login;
-    private TextView forget_password;
+public class ManageLoginActivity extends AppCompatActivity {
+    private static final String TAG = "ManageLoginActivity";
     private EditText username;
     private EditText password;
-    String name,pwd;
-    private TextView manage_login;
+    private Button login;
+    String pwd,name;
+    private TextView test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        username=findViewById(R.id.edit_username_login);
-        password=findViewById(R.id.edit_password_login);
-        login=findViewById(R.id.login);
+        setContentView(R.layout.activity_manage_login);
+        username = findViewById(R.id.manage_username_login);
 
+        password = findViewById(R.id.manage_password_login);
+
+        login = findViewById(R.id.manage_login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name=username.getText().toString();
-                pwd=password.getText().toString();
 
-                new Thread(){
+                name = username.getText().toString();
+                pwd = password.getText().toString();
+                new Thread() {
                     @Override
                     public void run() {
-                        int num=init(name,pwd);
-                        if (num>0){
-                            Intent it=new Intent(LoginActivity.this,MainActivity.class);
+                        int num = init(name, pwd);
+                        if (num > 0) {
+                            Intent it = new Intent(ManageLoginActivity.this, ManageActivity.class);
                             it.putExtra("user_id",num);
                             startActivity(it);
                             finish();
-                        }else {
+                        } else {
                             Looper.prepare();
-                            Toast.makeText (getApplicationContext(),"用户或密码错误", Toast.LENGTH_LONG ).show();
+                            Toast.makeText(getApplicationContext(), "用户或密码错误", Toast.LENGTH_LONG).show();
                             Looper.loop();
                         }
                     }
                 }.start();
             }
         });
-        manage_login=findViewById(R.id.manage_btn_text);
-        manage_login.setOnClickListener(new View.OnClickListener() {
+        test=findViewById(R.id.test_login);
+        test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent manage=new Intent(LoginActivity.this,ManageLoginActivity.class);
-                startActivity(manage);
-            }
-        });
-        forget_password=findViewById(R.id.forget_login_text);
-        forget_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1=new Intent(LoginActivity.this,ReviserPasswordActivity.class);
-                startActivity(intent1);
+                Intent intent=new Intent(ManageLoginActivity.this,ManageActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
-
     }
 
     private int init(String name, String pwd) {
@@ -101,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             String content=String.valueOf(jsonObject);  //json串转string类型
 
             HttpURLConnection conn=(HttpURLConnection) url.openConnection(); //开启连接
-            conn.setConnectTimeout(8000);
+            conn.setConnectTimeout(5000);
 
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -139,5 +128,4 @@ public class LoginActivity extends AppCompatActivity {
         return  id;
 
     }
-
 }
